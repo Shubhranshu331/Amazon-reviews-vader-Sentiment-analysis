@@ -1,42 +1,94 @@
-# Sentiment-Analysis
-Sentiment analysis in natural language processing (NLP) involves determining the sentiment or emotional tone expressed in text. It’s commonly used to classify text as positive, negative, or neutral. Sentiment analysis is a fascinating task that involves determining the sentiment expressed in a piece of text, such as whether it’s positive, negative, or neutral. Let’s create a brief description for your project using NLTK (Natural Language Toolkit) and an example dataset from Kaggle.
+# Sentiment Analysis on Amazon Fine Food Reviews
 
-Project Title: Amazon Product Review Sentiment Analysis
+This project performs sentiment analysis on the Amazon Fine Food Reviews dataset using the VADER (Valence Aware Dictionary and sEntiment Reasoner) model from NLTK. The goal is to analyze how textual sentiment aligns with user-provided star ratings.
 
-Description: The “Amazon Product Review Sentiment Analysis” project applies NLTK and machine learning techniques to classify Amazon product reviews into three categories: ‘Positive,’ ‘Neutral,’ and ‘Negative.’ Here are the key steps involved:
+---
 
-  Data Collection:
-      Obtain a dataset of Amazon product reviews. One such dataset is available on Kaggle, containing millions of Amazon reviews in fastText format1.
-      Alternatively, you can use the Multi-Domain Sentiment Dataset (version 2.0) with 25 product reviews on Amazon products2.
-  Data Preprocessing:
-      Clean the text data by removing special characters, stopwords, and performing tokenization.
-      Convert text to lowercase for consistency.
-  Feature Extraction:
-      Extract relevant features from the text, such as bag-of-words, TF-IDF vectors, or word embeddings.
-      These features serve as input for the sentiment analysis model.
-  Sentiment Analysis:
-      Use NLTK’s tools for text classification and sentiment analysis.
-      Predict the sentiment label (positive, neutral, or negative) for each review.
-  Data Visualization:
-      Visualize the distribution of sentiments using plots (e.g., bar charts or pie charts).
-      Explore patterns and trends in the data.
-  Predictive Modeling:
-      Evaluate the model’s performance using metrics like accuracy, precision, recall, and F1-score.
-      Fine-tune the model if necessary.
+## 📊 Dataset
 
-VADER (Valence Aware Dictionary and Sentiment Reasoner) is a powerful sentiment analysis tool specifically
-designed for understanding sentiments expressed in social media text, such as tweets and online comments1. Here’s
-what you need to know about VADER:
+- **Source**: Amazon Fine Food Reviews (Kaggle)
+- Contains user reviews including:
+  - Review text
+  - Summary
+  - Star ratings (1–5)
+  - User and product metadata
 
-What is VADER?
-	VADER is a lexicon and rule-based sentiment analysis model.
-	It’s sensitive to both polarity (positive, negative, or neutral) and intensity of emotions within human text.
-	Unlike machine learning models, VADER doesn’t require extensive training data, making it less resource-consuming2.
-How Does VADER Work?
-	VADER analyzes text by considering a list of words with positive or negative connotations.
-	It accounts for capitalization, punctuation, and context to provide nuanced sentiment scores.
-	The sentiment score ranges from -1 (most negative) to +1 (most positive)1.
-Accuracy and Advantages:
-	VADER achieves high accuracy, outperforming even human raters in some cases.
-	Its F1 score for sentiment classification on tweets is impressive (0.96)1.
-	You can use VADER to automate sentiment assessment and gain insights from customer feedback.
+A subset of 20,000 reviews is used for efficient analysis.
+
+---
+
+## ⚙️ Approach
+
+### 1. Data Loading
+- Dataset is loaded using Pandas
+- Limited to first 20,000 entries for faster processing
+
+### 2. Exploratory Data Analysis (EDA)
+- Distribution of review scores (1–5 stars)
+- Visualization of rating frequency
+
+### 3. Text Processing (NLTK)
+- Tokenization
+- Part-of-speech tagging
+- Named entity recognition (demonstration)
+
+### 4. Sentiment Analysis (VADER)
+- Each review is analyzed using VADER
+- Generates sentiment scores:
+  - Positive (`pos`)
+  - Neutral (`neu`)
+  - Negative (`neg`)
+  - Compound score (`compound`)
+
+### 5. Data Integration
+- Sentiment scores are merged with original dataset
+- Enables comparison between text sentiment and ratings
+
+### 6. Visualization
+- Compound sentiment score vs star ratings
+- Breakdown of positive, neutral, and negative scores across ratings
+
+---
+
+## 📈 Results
+
+- Higher star ratings generally correspond to higher positive sentiment scores
+- Lower ratings show increased negative sentiment
+- Neutral sentiment is distributed across all rating levels
+
+These trends indicate that VADER captures overall sentiment patterns in user reviews effectively.
+
+---
+
+## 🛠️ Technologies Used
+
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
+- NLTK (VADER Sentiment Analyzer)
+
+---
+
+## ⚠️ Limitations
+
+- VADER is a lexicon-based model and may not fully capture:
+  - Sarcasm
+  - Contextual nuances
+  - Domain-specific language
+- No supervised learning or model training is performed
+
+---
+
+## 🚀 Future Scope
+
+- Apply machine learning or deep learning models for improved accuracy
+- Perform sentiment classification and evaluation
+- Extend analysis to full dataset
+
+---
+
+## 📌 Conclusion
+
+This project demonstrates how lexicon-based sentiment analysis can be applied to real-world review data to extract meaningful insights and observe patterns between textual sentiment and user ratings.
