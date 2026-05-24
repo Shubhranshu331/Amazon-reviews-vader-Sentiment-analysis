@@ -6,7 +6,7 @@ This project performs sentiment analysis on the Amazon Fine Food Reviews dataset
 
 ## 📊 Dataset
 
-- **Source**: Amazon Fine Food Reviews (Kaggle)
+- **Source**: Amazon Fine Food Reviews (Kaggle): [https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews](https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews)
 - Contains user reviews including:
   - Review text
   - Summary
